@@ -1,9 +1,6 @@
-nf = int(input("Quantos numeros da sequencia de fibonati voce quer ?"))
-t,tt,ttt = (0,1,1)
-print("{} - ".format(t),end="")
-for i in range(nf - 2):
-    ttt = tt + t
-    print("{} - ".format(tt),end='')
-    t = tt
-    tt = ttt
-print(ttt,".",'numero de fi:',tt / t)
+#!/usr/bin/env python3
+from functools import lru_cache
+@lru_cache
+def fibonacci(number: int) -> int:
+	return 1 if number <= 1 else (fibonacci(number - 1) + fibonacci(number - 2))
+print(fibonacci(int(input('Tamanho da fibonacci sequence que você quer: '))))
